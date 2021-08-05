@@ -1,0 +1,192 @@
+country,year,value,rank,letter
+Venezuela,2020,6500,1,Afghanistan
+Zimbabwe,2020,622.779,2,Albania
+Sudan,2020,141.604,3,Algeria
+Lebanon,2020,85.452,4,Angola
+Suriname,2020,49.769,5,Antigua and Barbuda
+Islamic Republic of Iran,2020,30.516,6,Armenia
+South Sudan,2020,27.08,7,Aruba
+Yemen,2020,26.4,8,Australia
+Haiti,2020,22.395,9,Austria
+Libya,2020,22.256,10,Azerbaijan
+Angola,2020,21.024,11,Bahrain
+Ethiopia,2020,20.16,12,Bangladesh
+Sierra Leone,2020,15.696,13,Barbados
+Zambia,2020,14.45,14,Belarus
+Uzbekistan,2020,13.023,15,Belgium
+Nigeria,2020,12.88,16,Belize
+Turkey,2020,11.942,17,Benin
+Liberia,2020,11.894,18,Bhutan
+Democratic Republic of the Congo,2020,11.5,19,Bolivia
+Pakistan,2020,10.741,20,Bosnia and Herzegovina
+Ghana,2020,10.597,21,Botswana
+Uruguay,2020,9.988,22,Brazil
+Malawi,2020,9.308,23,Brunei Darussalam
+Guinea,2020,9.1,24,Bulgaria
+Tajikistan,2020,8.075,25,Burkina Faso
+Kyrgyz Republic,2020,8.041,26,Burundi
+Turkmenistan,2020,8,27,Côte d'Ivoire
+São Tomé and Príncipe,2020,7.867,28,Cabo Verde
+Burundi,2020,7.556,29,Cambodia
+Kazakhstan,2020,6.943,30,Cameroon
+Rwanda,2020,6.9,31,Canada
+Lao P.D.R.,2020,6.5,32,Central African Republic
+Nepal,2020,6.382,33,Chad
+The Gambia,2020,6.145,34,Chile
+Myanmar,2020,6.113,35,China
+Tunisia,2020,5.836,36,Colombia
+Egypt,2020,5.683,37,Comoros
+Bangladesh,2020,5.648,38,Costa Rica
+Afghanistan,2020,5.443,39,Croatia
+Kenya,2020,5.3,40,Cyprus
+Georgia,2020,5.254,41,Czech Republic
+Belarus,2020,5.148,42,Democratic Republic of the Congo
+Jamaica,2020,5.1,43,Denmark
+Mongolia,2020,5,44,Djibouti
+India,2020,4.948,45,Dominica
+Eritrea,2020,4.702,46,Dominican Republic
+Sri Lanka,2020,4.665,47,Egypt
+Niger,2020,4.4,48,El Salvador
+Nicaragua,2020,4.374,49,Equatorial Guinea
+Madagascar,2020,4.3,50,Eritrea
+Lesotho,2020,4.259,51,Estonia
+Uganda,2020,4.178,52,Eswatini
+Eswatini,2020,4.115,53,Ethiopia
+Seychelles,2020,3.898,54,Fiji
+Solomon Islands,2020,3.877,55,Finland
+Mauritania,2020,3.851,56,France
+Vietnam,2020,3.772,57,Gabon
+Hungary,2020,3.65,58,Georgia
+Mozambique,2020,3.631,59,Germany
+Bhutan,2020,3.62,60,Ghana
+Saudi Arabia,2020,3.575,61,Greece
+Tanzania,2020,3.555,62,Grenada
+Algeria,2020,3.5,63,Guatemala
+Mexico,2020,3.396,64,Guinea
+Papua New Guinea,2020,3.374,65,Guinea-Bissau
+South Africa,2020,3.335,66,Guyana
+Dominican Republic,2020,3.319,67,Haiti
+Poland,2020,3.318,68,Honduras
+Czech Republic,2020,3.315,69,Hong Kong SAR
+Honduras,2020,3.287,70,Hungary
+Russia,2020,3.22,71,Iceland
+Ukraine,2020,3.168,72,India
+Equatorial Guinea,2020,3.029,73,Indonesia
+Azerbaijan,2020,3,74,Iraq
+Comoros,2020,3,75,Ireland
+Gabon,2020,3,76,Islamic Republic of Iran
+Central African Republic,2020,2.946,77,Israel
+China,2020,2.92,78,Italy
+Vanuatu,2020,2.915,79,Jamaica
+Paraguay,2020,2.909,80,Japan
+Barbados,2020,2.906,81,Jordan
+Romania,2020,2.891,82,Kazakhstan
+Chile,2020,2.878,83,Kenya
+Djibouti,2020,2.878,84,Kiribati
+Cameroon,2020,2.801,85,Korea
+Samoa,2020,2.8,86,Kosovo
+Chad,2020,2.797,87,Kuwait
+Moldova,2020,2.778,88,Kyrgyz Republic
+Brazil,2020,2.729,89,Lao P.D.R.
+Iceland,2020,2.681,90,Latvia
+Mauritius,2020,2.55,91,Lebanon
+Cambodia,2020,2.537,92,Lesotho
+Benin,2020,2.5,93,Liberia
+Republic of Congo,2020,2.494,94,Libya
+Colombia,2020,2.44,95,Lithuania
+Philippines,2020,2.438,96,Luxembourg
+Namibia,2020,2.329,97,Macao SAR
+Qatar,2020,2.17,98,Madagascar
+Guatemala,2020,2.143,99,Malawi
+Indonesia,2020,2.074,100,Malaysia
+Guinea-Bissau,2020,2.03,101,Maldives
+Burkina Faso,2020,2,102,Mali
+Senegal,2020,1.989,103,Malta
+Peru,2020,1.812,104,Marshall Islands
+The Bahamas,2020,1.776,105,Mauritania
+Dominica,2020,1.752,106,Mauritius
+New Zealand,2020,1.712,107,Mexico
+Macao SAR,2020,1.7,108,Micronesia
+Bolivia,2020,1.661,109,Moldova
+Puerto Rico,2020,1.622,110,Mongolia
+Botswana,2020,1.618,111,Montenegro
+Slovak Republic,2020,1.527,112,Morocco
+United States,2020,1.52,113,Mozambique
+Tuvalu,2020,1.5,114,Myanmar
+United Arab Emirates,2020,1.5,115,Namibia
+Kiribati,2020,1.483,116,Nauru
+Serbia,2020,1.458,117,Nepal
+Albania,2020,1.405,118,Netherlands
+Norway,2020,1.4,119,New Zealand
+Togo,2020,1.396,120,Nicaragua
+Fiji,2020,1.3,121,Niger
+Lithuania,2020,1.277,122,Nigeria
+Austria,2020,1.24,123,North Macedonia
+Aruba,2020,1.222,124,Norway
+Côte d'Ivoire,2020,1.2,125,Oman
+Bulgaria,2020,1.198,126,Pakistan
+West Bank and Gaza,2020,1.182,127,Palau
+Netherlands,2020,1.176,128,Panama
+Malaysia,2020,1.126,129,Papua New Guinea
+Cabo Verde,2020,1,130,Paraguay
+Kuwait,2020,1,131,Peru
+Oman,2020,1,132,Philippines
+Antigua and Barbuda,2020,0.991,133,Poland
+Guyana,2020,0.964,134,Portugal
+Armenia,2020,0.913,135,Puerto Rico
+Marshall Islands,2020,0.9,136,Qatar
+Timor-Leste,2020,0.899,137,Republic of Congo
+Nauru,2020,0.891,138,Romania
+North Macedonia,2020,0.879,139,Russia
+St. Vincent and the Grenadines,2020,0.866,140,Rwanda
+Micronesia,2020,0.849,141,São Tomé and Príncipe
+Panama,2020,0.832,142,Samoa
+Malta,2020,0.824,143,San Marino
+Sweden,2020,0.821,144,Saudi Arabia
+Belize,2020,0.803,145,Senegal
+Iraq,2020,0.8,146,Serbia
+Costa Rica,2020,0.783,147,Seychelles
+Bosnia and Herzegovina,2020,0.776,148,Sierra Leone
+United Kingdom,2020,0.772,149,Singapore
+Switzerland,2020,0.77,150,Slovak Republic
+Kosovo,2020,0.753,151,Slovenia
+Australia,2020,0.745,152,Solomon Islands
+Finland,2020,0.722,153,South Africa
+St. Kitts and Nevis,2020,0.687,154,South Sudan
+Belgium,2020,0.637,155,Spain
+Cyprus,2020,0.626,156,Sri Lanka
+Canada,2020,0.616,157,St. Kitts and Nevis
+Greece,2020,0.573,158,St. Lucia
+Latvia,2020,0.566,159,St. Vincent and the Grenadines
+Israel,2020,0.549,160,Sudan
+Tonga,2020,0.546,161,Suriname
+Slovenia,2020,0.503,162,Sweden
+Korea,2020,0.5,163,Switzerland
+Mali,2020,0.499,164,Taiwan Province of China
+San Marino,2020,0.498,165,Tajikistan
+Germany,2020,0.495,166,Tanzania
+France,2020,0.458,167,Thailand
+Thailand,2020,0.428,168,The Bahamas
+Singapore,2020,0.407,169,The Gambia
+Luxembourg,2020,0.405,170,Timor-Leste
+Denmark,2020,0.4,171,Togo
+Maldives,2020,0.371,172,Tonga
+St. Lucia,2020,0.341,173,Trinidad and Tobago
+Hong Kong SAR,2020,0.3,174,Tunisia
+Brunei Darussalam,2020,0.294,175,Turkey
+Jordan,2020,0.282,176,Turkmenistan
+Croatia,2020,0.275,177,Tuvalu
+Grenada,2020,0.244,178,Uganda
+Spain,2020,0.226,179,Ukraine
+El Salvador,2020,0.214,180,United Arab Emirates
+Estonia,2020,0.2,181,United Kingdom
+Ireland,2020,0.2,182,United States
+Morocco,2020,0.2,183,Uruguay
+Italy,2020,0.13,184,Uzbekistan
+Taiwan Province of China,2020,0.1,185,Vanuatu
+Montenegro,2020,0.071,186,Venezuela
+Japan,2020,0.063,187,Vietnam
+Portugal,2020,0.004,188,West Bank and Gaza
+Trinidad and Tobago,2020,0.003,189,Yemen
+Bahrain,2020,0,190,Zambia
+Palau,2020,0,191,Zimbabwe
