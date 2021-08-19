@@ -1,0 +1,308 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Copy of firstScraper.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/RDeconomist/classes/blob/main/DS4_Scraper_FTHeadlines\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MVfixlVBK5we"
+      },
+      "source": [
+        "**Data Science - Financial Times headline scraper**\n",
+        "\n",
+        "Aim of the file:\n",
+        "\n",
+        "1.   Example using the FT site. Made by Ben Pimley and Richard Davies"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "r-JSinApK49d"
+      },
+      "source": [
+        "# // 1.  Import packages that we need:\n",
+        "# // Always run this from the start, if you change something and come back later it may give you an error\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "# // Web scraping: \n",
+        "import requests\n",
+        "import string\n",
+        "from bs4 import BeautifulSoup\n",
+        "# // OS. Sometimes need this for finding working directory:\n",
+        "import os\n",
+        "# ////////////////////////////////////////////////////////////////"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YH5WjG6IPVr7"
+      },
+      "source": [
+        "Introduction: using a base URL and injecting a series of stock tickers into it."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Vh8EIq2_PVXs",
+        "outputId": "c0a97ef4-fb7b-4e1b-fa94-76bf651d403a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "# // Set the base URL: \n",
+        "# // Curly brackets mean that whatever you put in the array will appear inside these brackets\n",
+        "url_base = \"https://www.ft.com/{}\"\n",
+        "\n",
+        "# // Add an array:\n",
+        "# // Because I chose the FT website I have called it 'topic' but this could equally be anything, it is just a name not a formula. \n",
+        "# // I have then taken each of the top columns from the website and inserted them below \n",
+        "# // For the homepage I don't want to add anything in curly brackets so I add a blank in speech marks\n",
+        "topic = ['','world', 'world/uk',  'companies', 'tech', 'markets', 'climate-capital', 'opinion', 'work-careers', 'life-arts', 'htsi']\n",
+        "\n",
+        "# // Create an empty array that we are going to fill, base it on the length of the tickers array\n",
+        "# // length = however many items you put in your array (in this case 11). \n",
+        "# // Empty array is a spacer you will fill up with the info you want \n",
+        "# // With Python unlike Excel you must say the amount of data that you will use before you get it rather than just having a large blank sheet for data\n",
+        "# // alter string length (here S50) based on the length of website urls. Try running it with a shorter figure - e.g. here 's30' would not work. \n",
+        "length = len(topic)\n",
+        "urls = np.empty(length, dtype='S50')\n",
+        "\n",
+        "# // Motivation for a loop is to do lots of things in a repeated way - download lists for large datasets rather than doing it manually\n",
+        "# // \"topic\" and \"t\" can be called anything - just an identifier that says we will go from first to last in order - the value of t changes each time you go through the loop\n",
+        "# // Loops save a lot of time - like a mass-mailout \n",
+        "# // Loop across this array:\n",
+        "for x in topic:\n",
+        "   # // Put the particular \"topic\" into the base URL\n",
+        "   # // Format takes whatever is in your url base and puts it into the curly brackets from above\n",
+        "   # // TopicURL = a different thing each time in the loop based on x - full long url \n",
+        "   # // After this you have to tell the computer to store all the pieces of info in the right place/order - the 2 lines below \n",
+        "   topicURL = url_base.format(x)\n",
+        "   # // Find the index value of this particular \"topic\".\n",
+        "   # // This tells you what number item you are on, i also varies each time as it depends on x - e.g. the home page is zero in the list - remember codes go 0,1,2,3!\n",
+        "   i = topic.index(x)\n",
+        "   # // Fill the empty url, at the given index value, with the full url for this \"topic\"\n",
+        "   # // Square brackets means find position in the list \n",
+        "   urls[i] = topicURL\n",
+        "\n",
+        "# // Print out the urls that we have  \n",
+        "# // This makes sure the array is working - helpful to check the length of the string - some urls may be cut off it is not long enough and therefore you can't click on them\n",
+        "# // 'b' is just a formatting thing that would disappear in a CSV \n",
+        "urls"
+      ],
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([b'https://www.ft.com/', b'https://www.ft.com/world',\n",
+              "       b'https://www.ft.com/world/uk', b'https://www.ft.com/companies',\n",
+              "       b'https://www.ft.com/tech', b'https://www.ft.com/markets',\n",
+              "       b'https://www.ft.com/climate-capital',\n",
+              "       b'https://www.ft.com/opinion', b'https://www.ft.com/work-careers',\n",
+              "       b'https://www.ft.com/life-arts', b'https://www.ft.com/htsi'],\n",
+              "      dtype='|S50')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "f5wu9mFuSO2e"
+      },
+      "source": [
+        "Using this in a full example:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "YVCVVxY3SMqu"
+      },
+      "source": [
+        "# // Set the base url:\n",
+        "url_base = \"https://www.ft.com/{}\"\n",
+        "\n",
+        "# // Pick the words that we want to put into the curly brackets of this url:\n",
+        "topic = ['','world', 'world/uk',  'companies', 'tech', 'markets', 'climate-capital', 'opinion', 'work-careers', 'life-arts', 'htsi']\n",
+        "\n",
+        "# // Create an empty array that is going to house the results\n",
+        "# // We need to tell Python this array needs to be able to hold objects, hence dtype=object.\n",
+        "# // This is becuase we are not going to put just one number, or one piece of string into position in the array\n",
+        "# // Rather, each part of this array is going to be an array with the individual scraping results:\n",
+        "data = np.empty(length, dtype='object')\n",
+        "\n",
+        "# // Begin a loop, dealing with this tickers one by one:\n",
+        "for x in topic:\n",
+        "   \n",
+        "   # // Return the index number of the thing we are working with:\n",
+        "   s = topic.index(x)\n",
+        "   \n",
+        "   # // Build the URL for this iteration of the loop:\n",
+        "   URL = url_base.format(x)\n",
+        "   \n",
+        "   # // Request the html from the URL:\n",
+        "   html = requests.get(URL)\n",
+        "   \n",
+        "   # // Get the soup of this page\n",
+        "   soup = BeautifulSoup(html.content, 'html.parser')\n",
+        "   \n",
+        "   # // Now get what we want from the page: \n",
+        "   # // Both of these give the same info - the headline on each tab - two separate classes give the same info\n",
+        "   headline = soup.find_all(\"a\", class_=\"js-teaser-heading-link\")\n",
+        "\n",
+        "   # // Get just the text:\n",
+        "   headline = headline[0].text\n",
+        "      \n",
+        "   # // Group together:\n",
+        "   results = [x, headline]\n",
+        "      \n",
+        "   # // Find the index value of this particular ticker.\n",
+        "   i = topic.index(x)\n",
+        "   \n",
+        "   # // Fill these results in to a master array of results:\n",
+        "   # // Fill the empty url, at the given index value, with the full url for this ticker\n",
+        "   data[i] = results   "
+      ],
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GKjtke1Gfxom"
+      },
+      "source": [
+        "Now examine what we have, and how we can retrive various parts of it:"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nBHqsYyLdUx6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "812031e1-a735-4f01-b604-4c462c19b85e"
+      },
+      "source": [
+        "data"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([list(['', 'Taliban faces growing dissent as protests spread in Afghan cities']),\n",
+              "       list(['world', 'Athens official blames wildfires on ‘criminal lack of preparedness’']),\n",
+              "       list(['world/uk', 'Boris Johnson facing calls to sack foreign secretary Dominic Raab  ']),\n",
+              "       list(['companies', 'Gopuff cuts pay after raising billions']),\n",
+              "       list(['tech', 'Facebook unveils virtual office app Horizon Workrooms']),\n",
+              "       list(['markets', 'Stocks and commodities fall on Fed and global growth jitters']),\n",
+              "       list(['climate-capital', 'Ozone recovery helps reduce global warming']),\n",
+              "       list(['opinion', 'Germany must end the confusion over security and defence']),\n",
+              "       list(['work-careers', 'Paint the town red: making a career in street art']),\n",
+              "       list(['life-arts', 'The last days of the ‘New Afghanistan’']),\n",
+              "       list(['htsi', '5 neat gadgets for everyday health'])], dtype=object)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pUhqQIFcf3W9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "7b7bf67d-dfc2-4948-8c6d-27623f4c1f3c"
+      },
+      "source": [
+        "data[1]"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['world',\n",
+              " 'Athens official blames wildfires on ‘criminal lack of preparedness’']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fM2k5LZTf3KV",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "3f8c10d6-e36f-40ea-a25c-50ec89a1e7ab"
+      },
+      "source": [
+        "data[6][1]"
+      ],
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'Ozone recovery helps reduce global warming'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    }
+  ]
+}
